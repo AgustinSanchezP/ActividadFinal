@@ -5,7 +5,7 @@ import { Person } from '../models/Person';
   providedIn: 'root'
 })
 export class PersonajesService {
-  static listadoproductos(): any {
+  static listadopersonajes(): any {
     throw new Error('Method not implemented.');
   }
 

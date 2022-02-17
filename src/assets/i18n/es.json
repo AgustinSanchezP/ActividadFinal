@@ -1,0 +1,16 @@
+{
+  "header": {
+    "misCursos": "Mis cursos",
+    "busquedaCursos": "Búsqueda Cursos"
+  },
+  "body":  {
+    "Listado de mis Personajes:": "Listado de mis Personajes:",
+    "Listado de Personajes:": "Listado de Personajes:",
+    "ID": "ID",
+    "NOMBRE": "NOMBRE",
+    "ESTADO": "ESTADO",
+    "ESPECIE": "ESPECIE",
+    "TIPO": "TIPO",
+    "GENERO": "GÉNERO"
+  }
+}

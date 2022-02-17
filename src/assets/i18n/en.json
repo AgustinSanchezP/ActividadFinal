@@ -1,0 +1,17 @@
+{
+  "header": {
+    "misCursos": "My Courses",
+    "busquedaCursos": "Search Courses"
+  },
+
+  "body":  {
+    "Listado de mis Personajes:": "My Characters List:",
+    "Listado de Personajes:": "Characters List:",
+    "ID": "ID",
+    "NOMBRE": "NAME",
+    "ESTADO": "STATUS",
+    "ESPECIE": "SPECIES",
+    "TIPO": "TYPE",
+    "GENERO": "GENDER"
+  }
+}

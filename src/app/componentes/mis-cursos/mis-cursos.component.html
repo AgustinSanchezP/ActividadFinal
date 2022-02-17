@@ -1,5 +1,17 @@
-<p>mis-cursos works!</p>
-
-
-
+<h1>{{'body.Listado de mis Personajes:'|translate}}</h1>
+<table class="table table-striped">
+    <thead>
+        <td>{{'body.ID'|translate}}</td> <td>{{'body.NOMBRE'|translate}}</td> <td>{{'body.ESTADO'|translate}}</td> <td>{{'body.ESPECIE'|translate}}</td> <td>{{'body.TIPO'|translate}}</td> <td>{{'body.GENERO'|translate}}</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of misPersonajes">
+            <td> {{m.id}} </td>
+            <td> {{m.name}} </td>
+            <td> {{m.status}} </td>
+            <td> {{m.species}} </td>
+            <td> {{m.type}} </td>
+            <td> {{m.gender}} </td>
+        </tr>
+    </tbody>
+</table>
 

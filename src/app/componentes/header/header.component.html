@@ -8,11 +8,19 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/misCursos']">Mis Cursos</a>
+          <a class="nav-link" [routerLink]="['/misCursos']">{{'header.misCursos'|translate}}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/busquedaCursos']">Búsqueda Cursos</a>
+          <a class="nav-link" [routerLink]="['/busquedaCursos']">{{'header.busquedaCursos'|translate}}</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="changeLanguageToSpanish();" >ESP</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="changeLanguageToEnglish();" >ENG</a>
+        </li>
+
       </ul>
     </div>
   </div>
