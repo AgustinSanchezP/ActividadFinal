@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Person } from '../../models/Person';
 import { MisPersonajesService } from '../../servicio/mis-personajes.service';
 import {TranslateService} from '@ngx-translate/core';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-mis-cursos',
@@ -13,8 +14,8 @@ export class MisCursosComponent implements OnInit {
 
   misPersonajes: Person[] = [];
 
-  constructor(private route: ActivatedRoute, private mispersonajesService: MisPersonajesService, private translate: TranslateService) {
-    this.misPersonajes = mispersonajesService.listadoMisPersonajes(); }
+  constructor(private route: ActivatedRoute, private misPersonajesService: MisPersonajesService, private translate: TranslateService) {
+    this.misPersonajes = misPersonajesService.listadoMisPersonajes(); }
 
   ngOnInit(): void {
   }
@@ -25,5 +26,13 @@ export class MisCursosComponent implements OnInit {
 
   changeLanguageToEnglish(): void {
     this.translate.use('en');
+  }
+
+  page_size = 4
+  page_number = 1
+
+  handlePage(e: PageEvent){
+    this.page_size = e.pageSize
+    this.page_number = e.pageIndex + 1
   }
 }

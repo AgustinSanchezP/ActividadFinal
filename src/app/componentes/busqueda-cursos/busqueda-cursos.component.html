@@ -1,16 +1,51 @@
-<h1>{{'body.Listado de Personajes:'|translate}}</h1>
-<table class="table table-striped">
-    <thead>
-      <td>{{'body.ID'|translate}}</td> <td>{{'body.NOMBRE'|translate}}</td> <td>{{'body.ESTADO'|translate}}</td> <td>{{'body.ESPECIE'|translate}}</td> <td>{{'body.TIPO'|translate}}</td> <td>{{'body.GENERO'|translate}}</td>
-    </thead>
-    <tbody>
-        <tr *ngFor="let p of personajes">
-            <td> {{p.id}} </td>
-            <td> {{p.name}} </td>
-            <td> {{p.status}} </td>
-            <td> {{p.species}} </td>
-            <td> {{p.type}} </td>
-            <td> {{p.gender}} </td>
-        </tr>
-    </tbody>
-</table>
+<div class="container">
+  <h1>{{'body.Listado de Personajes:'|translate}}</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="nombre">{{'body.NOMBRE'|translate}}: </label><input type="text" class="form-control" name="filterPost" placeholder="{{'body.NOMBRE'|translate}}" [(ngModel)]="filterPost">
+
+        <label for="especie">{{'body.ESPECIE'|translate}}: </label>
+
+        <div class="dropdown">
+          <button class="dropbtn">{{'body.ESPECIE'|translate}}</button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" [routerLink]="['/human']">Human</a>
+            <a class="dropdown-item" [routerLink]="['/alien']">Alien</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="col">
+      <table class="table table-striped">
+        <thead>
+          <td>{{'body.ID'|translate}}</td> <td>{{'body.NOMBRE'|translate}}</td> <td>{{'body.ESTADO'|translate}}</td> <td>{{'body.ESPECIE'|translate}}</td> <td>{{'body.TIPO'|translate}}</td> <td>{{'body.GENERO'|translate}}</td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of personajes | paginate:page_size:page_number | filter:filterPost">
+                <td> {{p.id}} </td>
+                <td> {{p.name}} </td>
+                <td> {{p.status}} </td>
+                <td> {{p.species}} </td>
+                <td> {{p.type}} </td>
+                <td> {{p.gender}} </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+<mat-paginator [length]="personajes.length"
+               [pageSize]="page_size"
+               (page)="handlePage($event)">
+
+</mat-paginator>
+

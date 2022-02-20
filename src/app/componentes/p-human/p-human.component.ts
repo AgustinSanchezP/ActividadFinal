@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Person } from '../../models/Person';
-import { PersonajesService } from '../../servicio/personajes.service';
+import { HumanService } from '../../servicio/human.service';
 import {TranslateService} from '@ngx-translate/core';
 import { PageEvent } from '@angular/material/paginator';
 import { PaginatorComponent } from 'src/app/paginator/paginator.component';
 
+
 @Component({
-  selector: 'app-busqueda-cursos',
-  templateUrl: './busqueda-cursos.component.html',
-  styleUrls: ['./busqueda-cursos.component.css']
+  selector: 'app-p-human',
+  templateUrl: './p-human.component.html',
+  styleUrls: ['./p-human.component.css']
 })
+export class PHumanComponent implements OnInit {
 
-export class BusquedaCursosComponent implements OnInit {
+  human: Person[] = [];
 
-  personajes: Person[] = [];
-
-  constructor(private route: ActivatedRoute, private personajesService: PersonajesService, private translate: TranslateService) {
-    this.personajes = personajesService.listadoPersonajes(); }
+  constructor(private route: ActivatedRoute, private humanService: HumanService, private translate: TranslateService) {
+    this.human = humanService.listadoHuman(); }
 
     changeLanguageToSpanish(): void {
       this.translate.use('es');
@@ -39,4 +39,5 @@ export class BusquedaCursosComponent implements OnInit {
   }
 
   filterPost = '';
+
 }

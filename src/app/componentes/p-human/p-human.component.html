@@ -1,0 +1,50 @@
+<div class="container">
+  <h1>{{'body.Listado de Personajes:'|translate}}</h1>
+  <div class="row">
+    <div class="col">
+      <div class="form-group">
+        <label for="nombre">{{'body.NOMBRE'|translate}}: </label><input type="text" class="form-control" name="filterPost" placeholder="{{'body.NOMBRE'|translate}}" [(ngModel)]="filterPost">
+
+        <label for="especie">{{'body.ESPECIE'|translate}}: </label>
+
+        <div class="dropdown">
+          <button class="dropbtn">{{'body.ESPECIE'|translate}}</button>
+          <div class="dropdown-content">
+            <a class="dropdown-item" [routerLink]="['/human']">Human</a>
+            <a class="dropdown-item" [routerLink]="['/alien']">Alien</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div class="col">
+    <table class="table table-striped">
+      <thead>
+        <td>{{'body.ID'|translate}}</td> <td>{{'body.NOMBRE'|translate}}</td> <td>{{'body.ESTADO'|translate}}</td> <td>{{'body.ESPECIE'|translate}}</td> <td>{{'body.TIPO'|translate}}</td> <td>{{'body.GENERO'|translate}}</td>
+      </thead>
+      <tbody>
+          <tr *ngFor="let h of human | paginate:page_size:page_number | filter:filterPost">
+              <td> {{h.id}} </td>
+              <td> {{h.name}} </td>
+              <td> {{h.status}} </td>
+              <td> {{h.species}} </td>
+              <td> {{h.type}} </td>
+              <td> {{h.gender}} </td>
+          </tr>
+      </tbody>
+  </table>
+  </div>
+</div>
+
+
+
+
+<mat-paginator [length]="human.length"
+             [pageSize]="page_size"
+             (page)="handlePage($event)">
+
+</mat-paginator>

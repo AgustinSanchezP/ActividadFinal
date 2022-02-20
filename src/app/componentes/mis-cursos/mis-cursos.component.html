@@ -15,3 +15,8 @@
     </tbody>
 </table>
 
+<mat-paginator [length]="misPersonajes.length"
+               [pageSize]="page_size"
+               (page)="handlePage($event)">
+
+</mat-paginator>

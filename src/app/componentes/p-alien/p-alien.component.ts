@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Person } from '../../models/Person';
-import { PersonajesService } from '../../servicio/personajes.service';
+import { AlienService } from '../../servicio/alien.service';
 import {TranslateService} from '@ngx-translate/core';
 import { PageEvent } from '@angular/material/paginator';
-import { PaginatorComponent } from 'src/app/paginator/paginator.component';
+
 
 @Component({
-  selector: 'app-busqueda-cursos',
-  templateUrl: './busqueda-cursos.component.html',
-  styleUrls: ['./busqueda-cursos.component.css']
+  selector: 'app-p-alien',
+  templateUrl: './p-alien.component.html',
+  styleUrls: ['./p-alien.component.css']
 })
+export class PAlienComponent implements OnInit {
 
-export class BusquedaCursosComponent implements OnInit {
+  alien: Person[] = [];
 
-  personajes: Person[] = [];
-
-  constructor(private route: ActivatedRoute, private personajesService: PersonajesService, private translate: TranslateService) {
-    this.personajes = personajesService.listadoPersonajes(); }
+  constructor(private route: ActivatedRoute, private alienService: AlienService, private translate: TranslateService) {
+    this.alien = alienService.listadoAlien(); }
 
     changeLanguageToSpanish(): void {
       this.translate.use('es');
@@ -30,7 +29,7 @@ export class BusquedaCursosComponent implements OnInit {
     ngOnInit(): void {
     }
 
-    page_size = 10
+    page_size = 5
     page_number = 1
 
   handlePage(e: PageEvent){

@@ -12,6 +12,7 @@
     "ESTADO": "STATUS",
     "ESPECIE": "SPECIES",
     "TIPO": "TYPE",
-    "GENERO": "GENDER"
+    "GENERO": "GENDER",
+    "Bienvenid@": "Welcome"
   }
 }

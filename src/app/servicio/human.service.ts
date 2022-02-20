@@ -4,12 +4,12 @@ import { Person } from '../models/Person';
 @Injectable({
   providedIn: 'root'
 })
-export class PersonajesService {
-  static listadopersonajes(): any {
+export class HumanService {
+  static listadoHuman(): any {
     throw new Error('Method not implemented.');
   }
 
-  personajes: Person [] = [
+  human: Person [] = [
     {
       id: 1,
       name: "Rick Sanchez",
@@ -49,14 +49,6 @@ export class PersonajesService {
       species: "Human",
       type: "",
       gender: "Male"
-      },
-      {
-      id: 6,
-      name: "Abadango Cluster Princess",
-      status: "Alive",
-      species: "Alien",
-      type: "",
-      gender: "Female"
       },
       {
       id: 7,
@@ -107,38 +99,6 @@ export class PersonajesService {
       gender: "Male"
       },
       {
-      id: 13,
-      name: "Alien Googah",
-      status: "unknown",
-      species: "Alien",
-      type: "",
-      gender: "unknown"
-      },
-      {
-      id: 14,
-      name: "Alien Morty",
-      status: "unknown",
-      species: "Alien",
-      type: "",
-      gender: "Male"
-      },
-      {
-      id: 15,
-      name: "Alien Rick",
-      status: "unknown",
-      species: "Alien",
-      type: "",
-      gender: "Male"
-      },
-      {
-      id: 16,
-      name: "Amish Cyborg",
-      status: "Dead",
-      species: "Alien",
-      type: "Parasite",
-      gender: "Male"
-      },
-      {
       id: 17,
       name: "Annie",
       status: "Alive",
@@ -174,8 +134,8 @@ export class PersonajesService {
 
     constructor() { }
 
-    listadoPersonajes(): Person[] {
-      return this.personajes;
+    listadoHuman(): Person[] {
+      return this.human;
     }
-
 }
+

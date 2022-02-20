@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
+import listadeUsers from '../../../../db.json';
 
 @Component({
   selector: 'app-body-principal',
@@ -13,7 +14,8 @@ export class BodyPrincipalComponent implements OnInit {
     translate.use('es');
   }
 
+  Users: any = listadeUsers;
+
   ngOnInit(): void {
   }
-
 }
