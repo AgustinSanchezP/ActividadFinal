@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
-import listadeUsers from '../../../../db.json';
+import { UsersService } from '../../servicio/users.service';
 
 @Component({
   selector: 'app-body-principal',
@@ -8,14 +8,16 @@ import listadeUsers from '../../../../db.json';
   styleUrls: ['./body-principal.component.css']
 })
 export class BodyPrincipalComponent implements OnInit {
+  users: any;
 
-  constructor(private translate: TranslateService) {
+  constructor(private translate: TranslateService, private usersService: UsersService) {
     translate.setDefaultLang('es');
     translate.use('es');
   }
 
-  Users: any = listadeUsers;
-
-  ngOnInit(): void {
+  ngOnInit(): void{
+    this.usersService.getUsers().subscribe(data => {
+      this.users = data;
+    });
   }
 }

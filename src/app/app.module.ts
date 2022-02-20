@@ -13,6 +13,7 @@ import { MisPersonajesService } from 'src/app/servicio/mis-personajes.service';
 import { PersonajesService } from 'src/app/servicio/personajes.service';
 import { HumanService } from 'src/app/servicio/human.service';
 import { AlienService } from 'src/app/servicio/alien.service';
+import { UsersService } from 'src/app/servicio/users.service';
 
 
 import { AppComponent } from './app.component';
@@ -65,7 +66,7 @@ const routes: Routes = [
     NoopAnimationsModule,
     FormsModule
   ],
-  providers: [MisPersonajesService, PersonajesService, HumanService, AlienService],
+  providers: [MisPersonajesService, PersonajesService, HumanService, AlienService, UsersService],
   bootstrap: [BodyPrincipalComponent]
 })
 export class AppModule { }

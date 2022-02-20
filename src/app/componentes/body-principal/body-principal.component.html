@@ -1,10 +1,9 @@
 <div class="container">
   <app-header></app-header>
 
-  <p *ngFor="let u of Users">
-    {{'body.Bienvenid@'|translate}} {{u.username}}!
-  </p>
-
+  <div *ngIf="users">
+    {{'body.Bienvenid@'|translate}} {{ users.username }}
+  </div>
 
 
   <router-outlet></router-outlet>
