@@ -5,6 +5,7 @@ import { PersonajesService } from '../../servicio/personajes.service';
 import {TranslateService} from '@ngx-translate/core';
 import { PageEvent } from '@angular/material/paginator';
 import { PaginatorComponent } from 'src/app/paginator/paginator.component';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-busqueda-cursos',
@@ -14,10 +15,15 @@ import { PaginatorComponent } from 'src/app/paginator/paginator.component';
 
 export class BusquedaCursosComponent implements OnInit {
 
-  personajes: Person[] = [];
+  // personajes: Person[] = [];
+
+  characters: any;
+  urlApi!: string;
+
 
   constructor(private route: ActivatedRoute, private personajesService: PersonajesService, private translate: TranslateService) {
-    this.personajes = personajesService.listadoPersonajes(); }
+    // this.personajes = personajesService.listadoPersonajes();
+   }
 
     changeLanguageToSpanish(): void {
       this.translate.use('es');
@@ -27,10 +33,8 @@ export class BusquedaCursosComponent implements OnInit {
       this.translate.use('en');
     }
 
-    ngOnInit(): void {
-    }
 
-    page_size = 10
+    page_size = 20
     page_number = 1
 
   handlePage(e: PageEvent){
@@ -39,4 +43,19 @@ export class BusquedaCursosComponent implements OnInit {
   }
 
   filterPost = '';
+
+  ngOnInit(): void {
+    this.getCharacters();
+  }
+
+  getCharacters() {
+
+    this.personajesService.getCharacters().subscribe((response) => {
+      this.characters = response;
+    });
+
+    this.personajesService.getCharacters().subscribe((characters) => console.log(characters));
+  }
+
 }
+

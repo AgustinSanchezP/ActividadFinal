@@ -26,13 +26,22 @@
           <td>{{'body.ID'|translate}}</td> <td>{{'body.NOMBRE'|translate}}</td> <td>{{'body.ESTADO'|translate}}</td> <td>{{'body.ESPECIE'|translate}}</td> <td>{{'body.TIPO'|translate}}</td> <td>{{'body.GENERO'|translate}}</td>
         </thead>
         <tbody>
-            <tr *ngFor="let p of personajes | paginate:page_size:page_number | filter:filterPost">
+            <!-- <tr *ngFor="let p of personajes | paginate:page_size:page_number | filter:filterPost">
                 <td> {{p.id}} </td>
                 <td> {{p.name}} </td>
                 <td> {{p.status}} </td>
                 <td> {{p.species}} </td>
                 <td> {{p.type}} </td>
                 <td> {{p.gender}} </td>
+            </tr> -->
+
+            <tr *ngFor="let char of characters['results'] | paginate:page_size:page_number | filter:filterPost">
+              <td>{{char.id}}</td>
+              <td>{{char.name}}</td>
+              <td>{{char.status}}</td>
+              <td>{{char.species}}</td>
+              <td>{{char.type}}</td>
+              <td>{{char.gender}}</td>
             </tr>
         </tbody>
     </table>
@@ -40,12 +49,8 @@
   </div>
 </div>
 
-
-
-
-<mat-paginator [length]="personajes.length"
+<mat-paginator [length]="characters.length"
                [pageSize]="page_size"
                (page)="handlePage($event)">
-
 </mat-paginator>
 

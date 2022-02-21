@@ -14,7 +14,7 @@ export class PaginatorComponent implements OnInit {
     private personajesService: PersonajesService
     ) {
 
-    this.personajes = personajesService.listadoPersonajes();
+    this.characters = personajesService.getCharacters();
   }
 
 
@@ -22,7 +22,7 @@ export class PaginatorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  personajes: Person[] = [];
+  characters: any;
 
   @Input("page_size") page_size: any;
   @Input("page_number") page_number: any;
